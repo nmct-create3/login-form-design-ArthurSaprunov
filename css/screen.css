@@ -1,12 +1,32 @@
 /*------------------------------------*\
 #FONTS
 \*------------------------------------*/
+@font-face {
+    font-family: "Inter UI";
+    font-weight: 400;
+    src: url("../fonts/Inter-UI-Regular.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Inter UI Medium";
+    font-weight: 600;
+    src: url("../fonts/Inter-UI-Medium.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Inter UI Bold";
+    font-weight: 700;
+    src: url("../fonts/Inter-UI-Bold.woff2") format("woff2");
+}
 
 /*------------------------------------*\
 #Variables
 \*------------------------------------*/
 
 :root {
+    --color-alpha: #3385FF;
+    --color-alpha-dark: #1B4186 ;
+    --color-alpha-x-dark: #20223a;
 
 }
 
@@ -24,13 +44,14 @@
 
 html {
     font-size: 16px;
+    font-family: "Inter UI", "Comic Sand MS", sans-serif;
     line-height: 1.5;
     font-family: Helvetica, arial, sans-serif;
-    color: grey;
+    color: var(--color-alpha-x-dark);
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: white;
+    background-color: #F5F6FA;
 }
 
 *,
@@ -48,13 +69,13 @@ html {
 
 ::-moz-selection {
     background: HotPink;
-    color: white;
+    color: var(--color-alpha);
     text-shadow: none;
 }
 
 ::selection {
     background: HotPink;
-    color: white;
+    color: var(--color-alpha);
     text-shadow: none;
 }
 
@@ -158,19 +179,43 @@ hr {
 }
 
 a {
-    color: HotPink;
+    color: var(--color-alpha);
     transition: all .1s ease-in-out;
 }
 
 a:visited,
 a:active {
-    color: HotPink;
+    color: var(--color-alpha);
 }
 
 a:hover,
 a:focus {
-    color: DeepPink;
+    color: var(--color-alpha);
 }
+
+input,label{
+    display: block;
+}
+
+
+input[type=submit]{
+    font-family: "Inter UI", "Comic Sand MS", sans-serif;
+    border-radius: 5px;
+    color: white;
+    background-color: var(--color-alpha);
+    padding: 10px;
+    line-height: 20px;
+    width: 100%;
+}
+
+input[type=submit]:hover,input[type=submit]:active,input[type=submit]:focus{
+    border-color: var(--color-alpha);
+    box-shadow: 0 1px 1px  0 lightblue;
+}
+
+
+
+
 
 /*------------------------------------*\
 #OBJECTS
@@ -432,6 +477,31 @@ a:focus {
     Website main logo
 */
 
+.c-logo{
+    height: 24px;
+    display: flex;
+    justify-content: center;
+}
+
+.c-logo__symbol{
+    display: block;
+    height: 100%;
+}
+
+.logo-outer-circle {
+    fill: var(--color-alpha-x-dark)
+}
+
+.logo-inner-circle {
+    fill: var(--color-alpha)
+}
+
+.logo-text {
+    fill: var(--color-alpha-dark)
+}
+
+
+
 /*
     Component: Card
     ---
@@ -451,10 +521,26 @@ a:focus {
 */
 
 .c-input {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    outline: none;
+
+
+    width: 100%;
+    border-radius: 4px;
+    font-family: "Inter UI", "Comic Sand MS", sans-serif;
+    color: var(--color-alpha-dark);
+    font-size: 16px;
+    line-height: 24px;
+    padding: 6px;
 
 }
 
 .c-input:focus {
+    border-color: var(--color-alpha);
+    box-shadow: 0 1px 1px  0 lightblue;
 }
 
 /*
@@ -464,13 +550,20 @@ a:focus {
 */
 
 .c-label {
-
+    display: block;
 }
 
 /* If a input is focused within the form-field class change te color of the label */
 
 .c-form-field:focus-within .c-label {
 
+}
+
+
+
+.c-form-field--option{
+    display: flex;
+    align-items: center;
 }
 
 /*
